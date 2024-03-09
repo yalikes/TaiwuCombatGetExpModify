@@ -39,9 +39,15 @@ namespace CombatGetExpModify
     [HarmonyPatch(nameof(CombatDomain.EndCombat))]
     public class PatchGalbalConfigBackend
     {
+        public static bool is_saved = false;
+        public static short[] orginalCombatGetExpBase = null;
         public static void Prefix()
         {
-            
+            if (!is_saved)
+            {
+                orginalCombatGetExpBase = (short[])GlobalConfig.Instance.CombatGetExpBase.Clone();
+                is_saved = true;
+            }
             var is_success = DomainManager.Mod.GetSetting(BackendPatch.modIdStr, "combat_get_exp_scale_factor", ref BackendPatch.scale_factor_value);
             if (!is_success)
             {
@@ -51,7 +57,7 @@ namespace CombatGetExpModify
             double scale_factor = BackendPatch.scale_factor_value/10.0;
             for (int i = 0; i < GlobalConfig.Instance.CombatGetExpBase.Length; i++)
             {
-                GlobalConfig.Instance.CombatGetExpBase[i]=(short)(GlobalConfig.Instance.CombatGetExpBase[i] * scale_factor);
+                GlobalConfig.Instance.CombatGetExpBase[i]=(short)(orginalCombatGetExpBase[i] * scale_factor);
             }
         }
     }
