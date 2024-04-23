@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <BaseOutputPath>D:\soft\steam\steamapps\common\The Scroll Of Taiwu\Mod\BattleGetExpModify\Plugins</BaseOutputPath>
-    <PackageOutputPath></PackageOutputPath>
+    <Platforms>AnyCPU;x64</Platforms>
+    <OutputPath>..\Plugins</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,4 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-
-
 </Project>
