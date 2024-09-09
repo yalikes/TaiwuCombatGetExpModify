@@ -1,11 +1,11 @@
 return {
-	Title = "战斗历练获取修改",
-	Author = "在下炮灰",
+	Title = "战斗历练地区恩义获取修改",
+	Author = "algebnaly",
 	Cover = "Cover.png",
 	WorkshopCover = "Cover.png",
-	Source = 1,
-	GameVersion = "0.0.70.49",
-	Version = "1.0.0.1",
+	Source = 0,
+	GameVersion = "0.0.72.14-test",
+	Version = "1.0.2.0",
 	FileId = 3172379059,
 	Visibility = 0,
 	UpdateLogList = {
@@ -27,6 +27,12 @@ return {
 				[1] = "移除mod中不必要的文件",
 			},
 		},
+		[5] = {
+			Timestamp = 1725863683,
+			LogList = {
+				[1] = "添加了修改地区恩义获取倍数功能",
+			},
+		},
 	},
 	TagList = {
 		[1] = "Modifications",
@@ -45,6 +51,16 @@ return {
 			MaxValue = 110,
 			StepSize = 1,
 			DefaultValue = 30,
+		},
+		[2] = {
+			SettingType = "Slider",
+			Key = "combat_get_spiritual_scale_factor",
+			DisplayName = "战斗地区恩义获取倍数设置(单位1倍)",
+			Description = "",
+			MinValue = 1,
+			MaxValue = 20,
+			StepSize = 1,
+			DefaultValue = 3,
 		},
 	},
 	ChangeConfig = false,
